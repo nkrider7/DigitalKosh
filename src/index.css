@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Cubano';
+    src: url('./static/font/Cubano/Cubano.ttf')
+  }
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./static/font/Gilroy/Gilroy-ExtraBold.otf');
+  }
+
