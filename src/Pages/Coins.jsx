@@ -14,6 +14,7 @@ export default function Coins() {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }
       const result = await response.json();
+      console.log(result)
       setData(result);
     } catch (error) {
       console.log(error.message);

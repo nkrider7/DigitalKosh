@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { createContext, useContext } from "react";
 import { app } from "./firebase";
 import { getFirestore, setDoc, getDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -58,8 +59,14 @@ const CryptoContext = ({ children }) => {
         email,
         password
       );
+      toast.success("Ragistered Successfull !", {
+        position: "top-left"
+      });
       console.log(msg);
     } catch (error) {
+      toast.error("Error Notification !", {
+        position: "top-left"
+      });
       console.log("ragister ", error);
     }
   };
@@ -72,8 +79,14 @@ const CryptoContext = ({ children }) => {
         email,
         password
       );
+      toast.success("Login Successfull !", {
+        position: "top-left"
+      });
       console.log(msg);
     } catch (error) {
+      toast.error("Error Notification !", {
+        position: "top-left"
+      });
       console.log("Please Check Your Detail ", error.message);
     }
   };

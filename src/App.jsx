@@ -3,6 +3,9 @@ import Home from "./Pages/Home"
 import Navbar from "./Components/Navbar"
 import Blogs from "./Pages/Blogs/Blogs"
 import CoinVews from "./Components/CoinVews"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
 
@@ -15,8 +18,7 @@ function App() {
         {/* <Route path="/dashboard/:id"  element={<Dashboard />} /> */}
         <Route path="/coin/:id"  element={<CoinVews/>} />
       </Routes>
-      
-      
+      <ToastContainer />
       
     </>
 

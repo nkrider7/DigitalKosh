@@ -4,6 +4,7 @@ import { SingleCoin } from "../Config/api";
 import { CryptoState } from "../context/CryptoContext";
 import { FaTwitter, FaHome, FaGithub, FaDownload, } from "react-icons/fa";
 import { IoBagAdd } from "react-icons/io5";
+import {toast} from "react-toastify"
 
 import "./coinviews.css"
 import Graph from "./Graph";
@@ -39,9 +40,11 @@ export default function CoinVews() {
   const Addwatch = () => {
    if(inWatchlist){
     console.log("Already in Watchlist")
+    toast.error(`${data.name} is already in Watchlist`)
    }
    else{
     setWatchlist([...watchList, data.id]);
+    toast.success(`${data.name} added to Watchlist`)
     addWatchlist(data.id)
    }
   }

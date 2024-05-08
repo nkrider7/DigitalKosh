@@ -7,12 +7,16 @@ import { signOut } from "firebase/auth";
 import { Login } from "../Pages/Login";
 
 const avtar =
-  "https://pixlok.com/wp-content/uploads/2021/03/Avtar-Icon-PNG-Image.jpg";
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGDohX4qAelLzi3t8vCfqccDFxifY-huxkmRrgnSRoig&s";
 
 export default function Navbar() {
   const { isLoggedIn, user, getWatchlist } = CryptoState();
   const [watchList, setWatchlist] = useState([]);
+  let imgUrl = user?.photoURL || avtar;
 
+  if(user?.photoURL === null){
+    imgUrl = avtar;
+  }
   if (isLoggedIn) {
     getWatchlist().then((data) => {
       if (data) {
@@ -75,7 +79,7 @@ export default function Navbar() {
                   <div className="w-10 rounded-full">
                     <img
                       className="rounded-full"
-                      src={user?.photoURL || avtar}
+                      src={imgUrl}
                     />
                   </div>
                 </label>
@@ -92,7 +96,7 @@ export default function Navbar() {
                     <div className="flex items-center flex-col gap-y-2 ">
                       <img
                         className="rounded-full w-24 border-2"
-                        src={user?.photoURL || avtar}
+                        src={imgUrl}
                       />
                       <h3 className=" font-gil  text-xl">{user?.displayName}</h3>
                       <h3>{user?.email} </h3>
