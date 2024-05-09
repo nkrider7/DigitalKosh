@@ -3,9 +3,10 @@ import Hero from "../Components/Hero";
 import Status from "../Components/Status";
 import Trust from "../Components/Trust";
 import Intro from "../Components/Intro";
-import Footer from "../Components/Footer";
+
 import { Suspense } from "react";
 import FAQ from "./FAQ";
+import Tranding from "../Components/Tranding";
 
 const Coins = React.lazy(() => import("./Coins"));
 
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <>
       <div className="">
+        <Tranding />
         <Hero />
         <Suspense fallback={<Loading />}>
           <Coins />
@@ -21,7 +23,6 @@ export default function Home() {
         <Status />
         <FAQ />
         <Trust />
-        <Footer />
       </div>
     </>
   );

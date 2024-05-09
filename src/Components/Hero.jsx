@@ -12,7 +12,7 @@ export default function Hero() {
     <div 
      
       style={custonStyle}
-      className="h-[60vh] bg-neutral bg-cover bg-center z-0"
+      className="h-fit bg-neutral bg-cover bg-center z-0"
     >
       <motion.h1
         initial={{ x: -50, opacity: 0 }}

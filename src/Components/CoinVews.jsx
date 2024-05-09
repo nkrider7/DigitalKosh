@@ -81,7 +81,7 @@ export default function CoinVews() {
                         className={` rounded-sm px-2 ${
                           data.market_data.price_change_percentage_24h > 0
                             ? "bg-green-500"
-                            : "bg-red-300"
+                            : "bg-red-500"
                         } `}
                       >
                         {Number(
