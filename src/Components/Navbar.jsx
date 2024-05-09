@@ -140,8 +140,8 @@ const Logout = () => {
         className="btn"
         onClick={() => document.getElementById("my_modal_1").showModal()}
       >
-        {" "}
-        Logout{" "}
+ 
+        Logout
       </button>
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box">
@@ -151,9 +151,9 @@ const Logout = () => {
             account then you have to login again.
           </p>
           <div className="modal-action">
-            <form method="dialog">
-              <button className="btn">Close</button>
-              <button onClick={signOutHandel}>Logout</button>
+            <form method="dialog ">
+              <button className="btn mx-4">Close</button>
+              <button onClick={signOutHandel} className="btn bg-red-500">Logout</button>
             </form>
           </div>
         </div>
