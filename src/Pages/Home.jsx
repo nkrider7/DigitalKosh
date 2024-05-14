@@ -7,6 +7,7 @@ import Intro from "../Components/Intro";
 import { Suspense } from "react";
 import FAQ from "./FAQ";
 import Tranding from "../Components/Tranding";
+import { BlogSlider } from "../Components/BlogSlider";
 
 const Coins = React.lazy(() => import("./Coins"));
 
@@ -20,6 +21,7 @@ export default function Home() {
           <Coins />
         </Suspense>
         <Intro />
+        <BlogSlider />
         <Status />
         <FAQ />
         <Trust />

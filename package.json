@@ -10,16 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.36.0",
+    "@tanstack/react-query-devtools": "^5.36.0",
     "@visx/visx": "^3.10.2",
     "axios": "^1.6.7",
     "firebase": "^10.8.1",
     "framer-motion": "^11.0.12",
+    "lottie-react": "^2.4.0",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^6.9.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "react-query": "^3.39.3",
     "react-router-dom": "^6.22.3",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "recharts": "^2.12.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",

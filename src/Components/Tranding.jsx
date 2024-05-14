@@ -1,4 +1,4 @@
-import {delay, motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import { CoinList } from '../Config/api';
 import { useEffect, useState } from 'react';
 
@@ -24,7 +24,6 @@ export default function Tranding() {
         try {
             const data = await fetch(CoinList())
             const result = await data.json();
-            console.log(result);
             setData(result.coins);
         } 
         catch (error) {

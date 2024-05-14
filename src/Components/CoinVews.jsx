@@ -1,40 +1,19 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SingleCoin } from "../Config/api";
 import { CryptoState } from "../context/CryptoContext";
 import { FaTwitter, FaHome, FaGithub, FaDownload } from "react-icons/fa";
 import { IoBagAdd } from "react-icons/io5";
 import { toast } from "react-toastify";
-
+import { useQuery } from "@tanstack/react-query";
 import "./coinviews.css";
-import Graph from "./Graph";
+import Chart from "./Chart";
 
 export default function CoinVews() {
+
   const { watchList, setWatchlist, addWatchlist } = CryptoState();
   const { id } = useParams();
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const { loading, error, data:data } = useQuery({ queryKey: ['CoinDataFetch',id ], queryFn: () => fetch(SingleCoin(id)).then(res => res.json())})
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(SingleCoin(id));
-        if (!response.ok) {
-          throw new Error(
-            `Network response was not ok: ${response.statusText}`
-          );
-        }
-        const result = await response.json();
-        setData(result);
-        setLoading(false);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-
-    fetchData();
-  }, [id]);
 
   const inWatchlist = watchList.includes(data?.id);
 
@@ -49,7 +28,7 @@ export default function CoinVews() {
     }
   };
 
-  if (loading)
+  if (loading){
     return (
       <div className="mx-auto max-w-screen-xl px-20 py-10">
         <div className="flex flex-col justify-center gap-4 w-full">
@@ -67,7 +46,33 @@ export default function CoinVews() {
         </div>
       </div>
     );
-  else
+  }
+
+
+if (error) {
+    return (
+      <div className="bg-neutral py-6 sm:py-8 lg:py-12">
+  <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div className="flex flex-col items-center">
+      <a href="/" className="mb-8 inline-flex items-center gap-2.5 text-2xl font-bold text-white md:text-3xl" aria-label="logo">
+        <svg width="95" height="94" viewBox="0 0 95 94" className="h-auto w-6 text-indigo-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M96 0V47L48 94H0V47L48 0H96Z" />
+        </svg>
+
+        Sorry For Coin data Does not Fetch
+      </a>
+
+      <p className="mb-4 text-sm font-semibold uppercase text-indigo-500 md:text-base">Server error</p>
+      <h1 className="mb-2 text-center text-2xl font-bold text-white md:text-3xl">Page not found</h1>
+
+
+      <a href="#" className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Go home</a>
+    </div>
+  </div>
+</div>
+    );
+}
+  
     return (
       <>
         <div className="flex justify-center text-secondary bg-[#131722] ">
@@ -193,12 +198,9 @@ export default function CoinVews() {
               )}
             </div>
             <div className=" w-[100vw] md:w-[50vw] md:m-4 flex  justify-center">
-              <div className=" md:scale-150  ">
-                <h2 className="text-xs font-gil text-white">
-                  {" "}
-                  Graphs of :{data && data.name}
-                </h2>
-                <Graph id={id} height={180} width={470} />
+              <div className="w-full px-2">
+                <Chart id={id} />
+                <h2 className="text-xs font-gil text-center text-white"> Graphs of :{data && data.name}</h2>
               </div>
             </div>
           </div>

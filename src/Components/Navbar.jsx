@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="navbar bg-neutral h-10 border-b">
+      <div className="navbar bg-neutral h-6 border-b">
         <div className="flex-1">
           <Link to="/" className=" flex justify-center items-center">
             <img src={logo} className="w-40" alt="" />

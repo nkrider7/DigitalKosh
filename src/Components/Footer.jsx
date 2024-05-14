@@ -42,7 +42,7 @@ export default function Footer() {
       </div>
     </div>
 
-    <div className="py-8 text-center text-sm text-gray-400">© 2021 - Present Flowrift. All rights reserved.</div>
+    <div className="py-8 text-center text-sm text-gray-400">© 2024 - Present by Narendra. All rights reserved.</div>
   </footer>
 </div>
     </>
