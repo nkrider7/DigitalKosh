@@ -7,6 +7,10 @@
     src: url('./static/font/Cubano/Cubano.ttf')
   }
   @font-face {
+    font-family: 'Nunito';
+    src: url('./static/font/Nunito/Nunito-Regular.ttf')
+  }
+  @font-face {
     font-family: 'Gilroy';
     src: url('./static/font/Gilroy/Gilroy-ExtraBold.otf');
   }

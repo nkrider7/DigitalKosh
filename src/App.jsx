@@ -6,6 +6,7 @@ import CoinVews from "./Components/CoinVews"
 import Footer from "./Components/Footer"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CoinsPage } from "./Pages/AllCoins/CoinsPage"
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
         <Route path="/blogs" exact element={<Blogs />} />
         {/* <Route path="/dashboard/:id"  element={<Dashboard />} /> */}
         <Route path="/coin/:id"  element={<CoinVews/>} />
+        <Route path="/coins"  element={<CoinsPage />} />
+        <Route path="/coins/:text"  element={<CoinsPage />} />
       </Routes>
       <ToastContainer />
       <Footer />

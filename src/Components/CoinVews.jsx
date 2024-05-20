@@ -75,15 +75,15 @@ if (error) {
   
     return (
       <>
-        <div className="flex justify-center text-secondary bg-[#131722] ">
-          <div className="bg-[#131722] md:w-fit w-fit  flex flex-col md:flex-row h-fit items-center">
+        <div className="flex justify-center text-secondary bg-neutral ">
+          <div className="bg-neutral md:w-fit w-fit  flex flex-col md:flex-row h-fit items-center">
             <div className="flex justify-center  w-full md:w-[40vw] text-white pb-4">
               {data && (
                 <div className=" pl-2  pt-4 ">
                   <div className="flex m-0 md:m-4">
                     <img
                       src={data.image.large}
-                      className="md:w-fit h-24 md:h-40 scale-75    rounded-lg"
+                      className="md:w-fit h-24 md:h-40 scale-75 rounded-lg"
                       alt=""
                     />
                     <div className="flex  flex-col">
@@ -208,7 +208,7 @@ if (error) {
         <div>
           {data && (
             <div>
-              <div className="bg-[#131722] py-6 sm:py-8 lg:py-12">
+              <div className="bg-neutral py-6 sm:py-8 lg:py-12">
                 <div className="mx-auto max-w-screen-md px-4 md:px-6">
                   <h1 className="mb-4 text-center text-2xl font-bold text-White sm:text-3xl md:mb-6">
                     {data.name}

@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         cub: ["Cubano", "sans-serif"],
         gil: ["Gilroy", "sans-serif"],
+        nun: ["Nunito", "sans-serif"],
       },
     },
   },

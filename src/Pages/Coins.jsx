@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { CoinList} from "../Config/api";
+import { CoinListAll } from "../Config/api";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
@@ -8,7 +7,7 @@ export default function Coins() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(CoinList());
+      const response = await fetch(CoinListAll());
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }
@@ -19,12 +18,13 @@ export default function Coins() {
     }
   };
 
-
- const  { loading, error, data } = useQuery({queryKey:"CoinList", queryFn: fetchData })
-
- if(loading) return <div>Loading...</div>
-  if(error) return <div>Error: {error.message}</div>
-
+  const { loading, error, data } = useQuery({
+    queryKey: "CoinList",
+    queryFn: fetchData,
+  });
+  console.log(data);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className="bg-neutral text-white flex justify-center items-center">
@@ -33,40 +33,95 @@ export default function Coins() {
           <thead className="ltr:text-left rtl:text-right">
             <tr>
               <th className="inset-y-0 start-0 px-4 py-2">Sno.</th>
-              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">Name</th>
-              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">Market Cap Price</th>
-              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">Score</th>
-              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">Market Cap Rank</th>
-              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">24 Hour Change</th>
-              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">Last 7 Days</th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">
+                Name
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">
+                Price
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">
+                Market Cap Price
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">
+                Score
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">
+                Market Cap Rank
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">
+                Total Volume
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-white">
+                Curculating
+              </th>
             </tr>
           </thead>
 
           <tbody className="divide-y divide-gray-200 sticky inset-y-0 start-0 px-4">
             {data &&
-              data.coins.map((coin, index) => (
-                <tr className="rounded-full hover:bg-gray-800" onClick={() => navigate(`/coin/${coin.item.id}`)} key={coin.item.id}>
+              data.map((coin, index) => (
+                <tr
+                  className="rounded-full hover:bg-gray-800"
+                  onClick={() => navigate(`/coin/${coin.id}`)}
+                  key={coin.id}
+                >
                   <td className="px-4 py-2 whitespace-nowrap">{index + 1}</td>
                   <td className="px-4 py-2 whitespace-nowrap">
                     <div className="flex items-center">
                       <div className="flex-shrink-0 h-10 w-10">
-                        <img className="h-10 w-10 rounded-full" src={coin.item.thumb} alt="" />
+                        <img
+                          className="h-10 w-10 rounded-full"
+                          src={coin.image}
+                          alt=""
+                        />
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-medium text-white">{coin.item.name}</div>
-                        <div className="text-xs text-gray-500">{coin.item.symbol}</div>
+                        <div className="text-sm font-medium text-white">
+                          {coin.name}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {coin.symbol}
+                        </div>
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-2 whitespace-nowrap">{coin.item.data?.market_cap}</td>
-                  <td className="px-4 py-2 whitespace-nowrap">{coin.item.score}</td>
-                  <td className="px-4 py-2 whitespace-nowrap">{coin.item.market_cap_rank}</td>
-                  <td className="px-4 py-2 whitespace-nowrap">{coin.item.data?.price_change_percentage_24h?.usd}</td>
-                  <td><img src={coin.item.data?.sparkline} alt="" /></td>
+                  <td className="px-4 py-2 whitespace-nowrap text-green-500  font-bold">
+                    ${coin.current_price}
+                  </td>
+                  <td className="px-4 py-2 whitespace-nowrap text-yellow-600 font-semibold">
+                    ${coin.market_cap}
+                  </td>
+                  <td className="px-4 py-2 whitespace-nowrap">{coin.atl}</td>
+                  <td className="px-4 py-2 whitespace-nowrap font-bold">
+                    #{coin.market_cap_rank}
+                  </td>
+                  <td className="px-4 py-2 whitespace-nowrap font-semibold">
+                    {coin.total_volume}
+                  </td>
+                  <td className="flex flex-col ">
+                    <progress
+                      className="progress progress-accent  w-40"
+                      value={coin.circulating_supply}
+                      max={coin.max_supply}
+                    ></progress>
+                    <div className=" flex justify-between text-[0.6rem] font-semibold">
+                      {" "}
+                      <span>{coin.circulating_supply}</span>{" "}
+                      <span>{coin.max_supply}</span>
+                    </div>
+                  </td>
                 </tr>
               ))}
           </tbody>
         </table>
+        <div className="flex justify-center">
+          <button
+            className="py-2 px-4 bg-accent font-cub rounded-lg"
+            onClick={() => navigate(`/coins`)}
+          >
+            Show More
+          </button>
+        </div>
       </div>
     </div>
   );
