@@ -33,7 +33,12 @@ export default function Chart({id}) {
 
   const getCoinData = async () => {
     try {
-      const response = await axios.get(Coindata(id));
+      const response = await axios.get(Coindata(id), {
+        headers: {
+          accept: 'application/json',
+          'x-cg-demo-api-key': 'CG-nFG1rehJSdGNLJ4wYRDxtcLe'
+        }
+      });
       return response.data;
     } catch (error) {
       throw new Error("Failed to fetch data");

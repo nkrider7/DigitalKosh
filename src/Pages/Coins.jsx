@@ -1,17 +1,21 @@
 import { CoinListAll } from "../Config/api";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function Coins() {
   const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
-      const response = await fetch(CoinListAll());
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
+      const response = await axios.get(CoinListAll(), {
+        headers: {
+          accept: 'application/json',
+          'x-cg-demo-api-key': 'CG-nFG1rehJSdGNLJ4wYRDxtcLe'
+        }
       }
-      const result = await response.json();
+    );
+      const result = response.data;
       return result;
     } catch (error) {
       console.log(error.message);
@@ -21,6 +25,7 @@ export default function Coins() {
   const { loading, error, data } = useQuery({
     queryKey: "CoinList",
     queryFn: fetchData,
+    staleTime:50000
   });
   console.log(data);
   if (loading) return <div>Loading...</div>;
@@ -86,7 +91,7 @@ export default function Coins() {
                     </div>
                   </td>
                   <td className="px-4 py-2 whitespace-nowrap text-green-500  font-bold">
-                    ${coin.current_price}
+                    ${(coin.current_price).toFixed(2)}
                   </td>
                   <td className="px-4 py-2 whitespace-nowrap text-yellow-600 font-semibold">
                     ${coin.market_cap}
@@ -105,9 +110,9 @@ export default function Coins() {
                       max={coin.max_supply}
                     ></progress>
                     <div className=" flex justify-between text-[0.6rem] font-semibold">
-                      {" "}
-                      <span>{coin.circulating_supply}</span>{" "}
-                      <span>{coin.max_supply}</span>
+
+                      <span>{(coin.circulating_supply).toFixed(2)}M</span>
+                      <span>{coin.max_supply}M</span>
                     </div>
                   </td>
                 </tr>

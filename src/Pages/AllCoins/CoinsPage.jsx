@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const CoinsPage = () => {
 
@@ -8,11 +9,18 @@ export const CoinsPage = () => {
   const [search, setSearch] = useState("");
 
   const getCardData = async () => {
-    const res = await fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${page}&sparkline=false`
+    
+    const res = await axios.get(
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${page}&sparkline=false`,
+      {
+        headers: {
+          accept: 'application/json',
+          'x-cg-demo-api-key': 'CG-nFG1rehJSdGNLJ4wYRDxtcLe'
+        }
+      }
     );
-    const data = await res.json();
-    // console.log(data);
+    const data = res.data
+    console.log(data);
     setCard((prev) => [...prev, ...data]);
     setLoading(false);
   };
