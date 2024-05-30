@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./Pages/Home"
 import Navbar from "./Components/Navbar"
 import Blogs from "./Pages/Blogs/Blogs"
-import CoinVews from "./Components/CoinVews"
+import CoinVews from "./Pages/CoinView/CoinVews"
 import Footer from "./Components/Footer"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

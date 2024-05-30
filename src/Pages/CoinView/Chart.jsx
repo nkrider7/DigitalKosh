@@ -11,7 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import moment from "moment";
-import { Coindata } from "../Config/api"
+import { Coindata } from "../../Config/api"
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 

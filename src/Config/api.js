@@ -14,4 +14,4 @@ export const TrendingCoins = (currency) =>
 
 export const Test = (currency) => `https://api.coingecko.com/api/v3/search/trending?vs_currency=${currency}`;
 
-export const Coindata = (id) => `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`;
+export const Coindata = (id) => `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30`;

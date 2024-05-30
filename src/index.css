@@ -14,4 +14,6 @@
     font-family: 'Gilroy';
     src: url('./static/font/Gilroy/Gilroy-ExtraBold.otf');
   }
-
+body  {
+  background: #000022;
+}

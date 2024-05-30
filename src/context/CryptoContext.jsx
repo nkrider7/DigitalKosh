@@ -108,7 +108,7 @@ const CryptoContext = ({ children }) => {
         unsubscribe();
       };
     }
-  }, [user]);
+  }, [user, setWatchlist]);
 
 
   // function to get watchlist from firebase

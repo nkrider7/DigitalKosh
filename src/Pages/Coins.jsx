@@ -26,13 +26,14 @@ export default function Coins() {
     queryKey: "CoinList",
     queryFn: fetchData,
     staleTime:50000
+    
   });
   console.log(data);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="bg-neutral text-white flex justify-center items-center">
+    <div className="bg-neutral text-white flex flex-col justify-center items-center">
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y-2 base-100 divide-gray-200 table text-sm">
           <thead className="ltr:text-left rtl:text-right">
@@ -119,6 +120,7 @@ export default function Coins() {
               ))}
           </tbody>
         </table>
+      </div>
         <div className="flex justify-center">
           <button
             className="py-2 px-4 bg-accent font-cub rounded-lg"
@@ -127,7 +129,6 @@ export default function Coins() {
             Show More
           </button>
         </div>
-      </div>
     </div>
   );
 }
