@@ -1,4 +1,4 @@
-import img from "../assets/intro.jpg";
+import img from "../assets/CryptoKosh.gif";
 
 export default function Intro() {
   return (

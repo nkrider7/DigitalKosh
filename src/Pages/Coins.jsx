@@ -33,7 +33,7 @@ export default function Coins() {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="bg-neutral text-white flex flex-col justify-center items-center">
+    <div className="bg-neutral text-white flex flex-col justify-center items-center overflow-auto">
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y-2 base-100 divide-gray-200 table text-sm">
           <thead className="ltr:text-left rtl:text-right">
