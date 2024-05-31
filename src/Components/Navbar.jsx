@@ -52,14 +52,14 @@ export default function Navbar() {
               className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
               <div className="card-body">
-                <span className="font-bold text-lg">
+                <span className="font-bold text-lg font-nun">
                   {watchList && watchList.length} Items
                 </span>
                 <ul>
                   {watchList &&
                     watchList.map((item) => (
                       <li key={item}>
-                        <div className="badge badge-primary my-1">{item}</div>
+                        <div className="bg-gray-700 px-2 py-2 rounded-md my-1 hover:bg-slate-600 "><Link className="font-nun font-extrabold capitalize " to={`coin/${item}`}>{item}</Link></div>
                       </li>
                     ))}
                 </ul>

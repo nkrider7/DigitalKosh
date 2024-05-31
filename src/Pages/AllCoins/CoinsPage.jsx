@@ -68,7 +68,7 @@ export const CoinsPage = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className=" container grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4  ">
+        <div className=" container grid grid-cols-2   md:grid-cols-3 lg:grid-cols-4 gap-x-2  ">
           {handleSearch().map((curVal, id) => {
             return <Card key={id} myData={curVal} />;
           })}
@@ -86,14 +86,14 @@ const Card = ({ myData }) => {
     };
 
   return (
-    <div className="card p-2 items-center">
-      <div className="card-info h-fit w-56  bg-[#000036] px-10 py-3 rounded-lg" onClick={naviToCoin}>
+    <div className="card p-2 items-center scale-75 md:scale-100">
+      <div className="card-info h-fit w-[12rem] md:w-56  bg-[#000036] px-10 py-3 rounded-lg" onClick={naviToCoin}>
         <div className="flex justify-center">
-          <img src={myData.image} className="h-20 w-20 rounded-lg " alt="" />
+          <img src={myData.image} className="h-20 w-20 rounded-lg hover:scale-105 transition " alt="" />
         </div>
         <div className="my-2 flex flex-col  justify-center  items-center gap-2">
         <h2 className="font-gi text-balance font-gil text-white leading-none">{myData.name}</h2>
-        <p className="font-gil text-[0.8rem] text-green-300 leading-none">$1000</p>
+        <p className="font-gil text-[0.8rem] text-green-300 leading-none">${myData.current_price}</p>
         </div>
       </div>
     </div>

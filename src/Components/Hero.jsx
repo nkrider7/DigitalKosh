@@ -38,7 +38,7 @@ export default function Hero() {
         transition={{ type: "spring", stiffness: 100 }}
         className="text-colorY  text-center  font-cub leading-none text-[2rem]"
       >
-        Kosh!! Apna Bitcoin Tracker
+        Kosh!! Apna Crypto Tracker
       </motion.h1>
 
       <div className="flex justify-center gap-2 flex-col  md:flex-row items-center  text-white pt-10 ">
