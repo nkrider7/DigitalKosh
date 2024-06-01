@@ -22,7 +22,9 @@ function App() {
         <Route path="/coins"  element={<CoinsPage />} />
         <Route path="/coins/:text"  element={<CoinsPage />} />
       </Routes>
-      <ToastContainer />
+      <ToastContainer 
+      theme="dark"
+      />
       <Footer />
     </div>
 

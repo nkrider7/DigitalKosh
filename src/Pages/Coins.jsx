@@ -67,7 +67,7 @@ export default function Coins() {
                         />
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-medium text-white">{coin.name}</div>
+                        <div className="text-md font-medium font-gil text-white">{coin.name}</div>
                         <div className="text-xs text-gray-500">{coin.symbol}</div>
                       </div>
                     </div>

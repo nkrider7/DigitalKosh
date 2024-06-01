@@ -2,6 +2,10 @@
 export default function FAQ() {
   const Ques = [
     {
+      ques: "What is CryptoKosh?",
+      ans: "Digital Kosh is a comprehensive tool for tracking cryptocurrency data. It provides real-time information on various cryptocurrencies, displays charts for data visualization, and allows users to save their favorite cryptocurrencies to a watchlist for easy tracking.",
+    },
+    {
       ques: "What is Bitcoin?",
       ans: "Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.",
     },

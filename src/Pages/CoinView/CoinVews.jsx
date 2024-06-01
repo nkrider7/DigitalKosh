@@ -232,7 +232,7 @@ const Description = ({ data }) => {
         <div>
           <h1 className="text-white font-cub mt-4 text-4xl">Description</h1>
           <div
-            className="text-white font-mad text-lg"
+            className="text-white font-nun text-lg"
             dangerouslySetInnerHTML={{ __html: data.description.en }}
           ></div>
         </div>
@@ -280,37 +280,16 @@ const ProductData = ({ data }) => {
                 max={data.market_data.total_supply}
               ></progress>
             </div>
-            <div className="w-fit  h-fit py-4 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
+            <div className="w-fit  h-fit py-5 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
               <h1 className="font-gil text-white text-center ">Rating</h1>
 
-              <div className="rating my-2 px-8">
-                <input
-                  type="radio"
-                  name="rating-1"
-                  className="mask mask-star"
-                />
-                <input
-                  type="radio"
-                  name="rating-1"
-                  className="mask mask-star"
-                  checked
-                />
-                <input
-                  type="radio"
-                  name="rating-1"
-                  className="mask mask-star"
-                />
-                <input
-                  type="radio"
-                  name="rating-1"
-                  className="mask mask-star"
-                />
-                <input
-                  type="radio"
-                  name="rating-1"
-                  className="mask mask-star"
-                />
-              </div>
+              <div className="rating">
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+</div>
             </div>
   </>
 }
