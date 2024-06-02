@@ -41,11 +41,11 @@ export default function CoinVews() {
     <>
       <div className="flex text-secondary bg-neutral ">
         <div className="bg-neutral px-2 flex justify-center flex-col items-center  w-full h-fit  pt-4">
-          <div className="list w-fit  h-fit py-4 bg-[rgb(0,0,54)] mb-4 rounded-xl ">
+          <div className="list w-fit  h-fit py-4 bg-[rgb(0,0,54)] mb-3 rounded-xl ">
             {data && <MainCard data={data} />}
           </div>
           {/* Card Section Here  */}
-          <div className="grid grid-cols-2 md:grid-cols-4 w-fit  gap-4 md:gap-x-6 ">
+          <div className="grid grid-cols-2 md:grid-cols-4 w-fit  gap-4 md:gap-x-3 ">
             {data && <FirstCard data={data} />}
             {data && <SecondCard data={data} />}
             {data && <ThirdCard data={data} />}
@@ -53,7 +53,7 @@ export default function CoinVews() {
           </div>
           {/* Coin Data Here */}
           <div className="flex flex-col md:flex-row gap-2 my-2">
-           {data && <ProductData data={data} />}
+            {data && <ProductData data={data} />}
           </div>
           {/* Chart Section Here */}
           <div className="w-full h-full bg-[#000036] p-4 mt-4 rounded-lg">
@@ -86,8 +86,8 @@ const MainCard = ({ data }) => {
   };
   return (
     <>
-      <div className="flex justify-between  flex-col md:flex-row  gap-y-6 md:gap-x-32 items-center px-4 py-2">
-        <div className="flex items-center gap-4">
+      <div className="flex justify-between  flex-col md:flex-row  gap-y-6 md:gap-x-36 items-center px-6 py-2">
+        <div className="flex items-center gap-4 ">
           <img
             src={data.image.large}
             className=" h-24 w-24 md:h-36 md:ml-4 md:w-36 "
@@ -178,11 +178,11 @@ const SecondCard = ({ data }) => {
 const ThirdCard = ({ data }) => {
   return (
     <>
-      <div className=" w-[9.5rem] h-[9.5rem] flex justify-center items-center flex-col md:w-48 md:h-48 rounded-lg  bg-[#000036]">
-        <h1 className="font-cub text-yellow-500 text-3xl">
+      <div className=" w-[9.5rem] h-[9.5rem] group  flex justify-center items-center flex-col md:w-48 md:h-48 rounded-lg  bg-[#000036]">
+        <h1 className="font-gil font-extrabold text-yellow-500 transition group-hover:text-white text-4xl">
           #{data.market_cap_rank}
         </h1>
-        <h1 className="font-gil text-white">Rank</h1>
+        <h1 className="font-gil text-white ">Rank</h1>
       </div>
     </>
   );
@@ -255,41 +255,63 @@ const RadialProgress = ({ totalCirculate, maxCirculate }) => {
   );
 };
 
+const ProductData = ({ data }) => {
+  return (
+    <>
+      <div className="w-fit  h-fit py-4 px-8 bg-[rgb(0,0,54)] my-1 rounded-xl ">
+        <h1 className="font-gil text-white text-sm ">Total Volume</h1>
+        <h2 className="text-white font-nun text-sm font-semibold">
+          ${data.market_data.total_volume.usd}
+        </h2>
+        <progress
+          className="progress progress-success w-56"
+          value={data.market_data.total_volume.usd}
+          max={data.market_data.total_supply}
+        ></progress>
+      </div>
+      <div className="w-fit  h-fit py-4 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
+        <h1 className="font-gil text-white text-sm ">Market Cap</h1>
+        <h2 className="text-white font-nun text-sm font-semibold">
+          ${data.market_data.market_cap.usd}
+        </h2>
+        <progress
+          className="progress progress-success w-56"
+          value={data.market_data.market_cap.usd}
+          max={data.market_data.total_supply}
+        ></progress>
+      </div>
+      <div className="w-fit  h-fit py-5 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
+        <h1 className="font-gil text-white text-center ">Rating</h1>
 
-const ProductData = ({ data }) => { 
-  return <>
-   <div className="w-fit  h-fit py-4 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
-              <h1 className="font-gil text-white ">Total Volume</h1>
-              <h2 className="text-white font-nun text-sm font-semibold">
-                ${data.market_data.total_volume.usd}
-              </h2>
-              <progress
-                className="progress progress-success w-56"
-                value={data.market_data.total_volume.usd}
-                max={data.market_data.total_supply}
-              ></progress>
-            </div>
-            <div className="w-fit  h-fit py-4 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
-              <h1 className="font-gil text-white ">Market Cap</h1>
-              <h2 className="text-white font-nun text-sm font-semibold">
-                ${data.market_data.market_cap.usd}
-              </h2>
-              <progress
-                className="progress progress-success w-56"
-                value={data.market_data.market_cap.usd}
-                max={data.market_data.total_supply}
-              ></progress>
-            </div>
-            <div className="w-fit  h-fit py-5 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
-              <h1 className="font-gil text-white text-center ">Rating</h1>
-
-              <div className="rating">
-  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-  <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-</div>
-            </div>
-  </>
-}
+        <div className="rating">
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+            checked
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+          <input
+            type="radio"
+            name="rating-2"
+            className="mask mask-star-2 bg-orange-400"
+          />
+        </div>
+      </div>
+    </>
+  );
+};

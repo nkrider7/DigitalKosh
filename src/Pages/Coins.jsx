@@ -52,7 +52,7 @@ export default function Coins() {
             {data &&
               data.map((coin, index) => (
                 <tr
-                  className="hover:bg-gray-800 cursor-pointer"
+                  className="hover:bg-gray-800 cursor-pointer odd:bg-[#000036] even:bg-[#000025]"
                   onClick={() => navigate(`/coin/${coin.id}`)}
                   key={coin.id}
                 >

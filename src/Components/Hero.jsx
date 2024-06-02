@@ -48,13 +48,13 @@ export default function Hero() {
          value={input}
          onChange={(e) => setInput(e.target.value)}
           type="text"
-          className="bg-white outline-sky-400 text-black w-fit pl-2 font-gil  pr-2 p-1 rounded-md"
+          className="bg-white outline-sky-400 text-black w-fit py-3 pl-2 font-gil text-xl  pr-2 p-1 rounded-md"
         />
          
         </div>
         <button
         onClick={handleOnSubmit}
-          className="bg-white text-black pl-2 font-gil w-fit pr-2 p-1 rounded-sm hover:bg-black hover:text-white transition border-white border"
+          className="bg-white text-black  font-gil w-fit  p-1 py-3 px-6 rounded-md hover:bg-black hover:text-white transition border-white border"
         >
           Search
         </button>
