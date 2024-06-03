@@ -59,7 +59,7 @@ export const CoinsPage = () => {
 
   return (
     <>
-      <div className="  mx-auto">
+      <div className="flex flex-col items-center justify-center">
         <div className="flex justify-center my-8">
           <input
             placeholder="Type to search..."

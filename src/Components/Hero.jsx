@@ -1,18 +1,20 @@
-import  { useState } from "react";
+import  { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import bg from '../assets/bghero.gif'
-import { useNavigate } from "react-router-dom";
+import Bitcon from "./../assets/bitcoin.json"
+import Lottie from "lottie-react";
+
+import clickSound from "./../assets/coin.mp3";
 
 
 export default function Hero() {
-  let navigate = useNavigate();
-  const [input, setInput] = useState("");
 
-  function handleOnSubmit() {
+  const audioRef = useRef(new Audio(clickSound));
 
-    navigate(`/coins/${input}`);
-
-  }
+  const handleClick = () => {
+    audioRef.current.play();
+  };
+  
 
     const custonStyle = {
         "backgroundImage": `url(${bg})`,
@@ -40,26 +42,16 @@ export default function Hero() {
       >
         Kosh!! Apna Crypto Tracker
       </motion.h1>
-
-      <div className="flex justify-center gap-2 flex-col  md:flex-row items-center  text-white pt-10 ">
-        <div className="flex gap-x-2">
-        <input
-         placeholder="Type to search..."
-         value={input}
-         onChange={(e) => setInput(e.target.value)}
-          type="text"
-          className="bg-white outline-sky-400 text-black w-fit py-3 pl-2 font-gil text-xl  pr-2 p-1 rounded-md"
-        />
-         
-        </div>
-        <button
-        onClick={handleOnSubmit}
-          className="bg-white text-black  font-gil w-fit  p-1 py-3 px-6 rounded-md hover:bg-black hover:text-white transition border-white border"
-        >
-          Search
-        </button>
-      </div>
-      <div className="pt-28 border-b-2 border-neutral-500 border-dashed"></div>
+<div className="flex justify-center">
+  
+<div onClick={handleClick} className="h-28 w-28 flex justify-center items-center hover:scale-105 ">
+     <Lottie animationData={Bitcon}    rendererSettings={{preserveAspectRatio: 'xMidYMid slice'}}
+        width={40} loop={true} />
+     </div>
+        
+</div>
+        
+      <div className="pt-10 border-b-2 border-neutral-500 border-dashed"></div>
     </div>
   </>
   )

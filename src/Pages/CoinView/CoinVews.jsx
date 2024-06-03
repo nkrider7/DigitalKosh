@@ -29,14 +29,15 @@ export default function CoinVews() {
     }
   };
   const {
-    loading,
+    isLoading,
     error,
     data: data,
   } = useQuery({ queryKey: ["CoinDataFetch", id], queryFn: fetchData });
   console.log(data);
 
-  if (loading) <Loading />;
+  if (isLoading) { return <Loading />; }
   if (error) <Error />;
+  else 
   return (
     <>
       <div className="flex text-secondary bg-neutral ">
@@ -280,10 +281,10 @@ const ProductData = ({ data }) => {
           max={data.market_data.total_supply}
         ></progress>
       </div>
-      <div className="w-fit  h-fit py-5 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
+      <div className="w-full  h-fit py-5 px-10 bg-[rgb(0,0,54)] my-1 rounded-xl ">
         <h1 className="font-gil text-white text-center ">Rating</h1>
 
-        <div className="rating">
+        <div className="rating justify-center flex">
           <input
             type="radio"
             name="rating-2"

@@ -52,20 +52,27 @@ export default function Chart({ id }) {
 
   if (isLoading) {
     return (
-      <div className="mx-auto max-w-screen-xl px-20 py-10">
-        <div className="flex flex-col justify-center gap-4 w-full">
-          <div className="flex gap-4 items-center justify-center">
-            <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
-            <div className="flex flex-col gap-4">
-              <div className="skeleton h-4 w-20"></div>
-              <div className="skeleton h-4 w-28"></div>
-            </div>
-            <div className="skeleton w-16 h-16 rounded-md shrink-0"></div>
-          </div>
-          <div className="skeleton h-4 w-full"></div>
-          <div className="skeleton h-4 w-full"></div>
-          <div className="skeleton h-32 w-full"></div>
-        </div>
+      <div className="mx-auto px-20 py-10">
+        
+<div role="status" className="max-w-full p-4 border  rounded shadow animate-pulse md:p-6 border-[#000070]">
+    <div className="h-2.5 bg-[#000070] rounded-full w-full mb-2.5"></div>
+    <div className="w-48 h-2 mb-10 bg-[#000070] rounded-full "></div>
+    <div className="flex items-baseline mt-4">
+        <div className="w-full  rounded-t-lg h-72 bg-[#000070]"></div>
+        <div className="w-full h-56 ms-6  rounded-t-lg bg-[#000070]"></div>
+        <div className="w-full  rounded-t-lg h-80 ms-6 bg-[#000070]"></div>
+        <div className="w-full  rounded-t-lg h-72 ms-6 bg-[#000070]"></div>
+        <div className="w-full  rounded-t-lg h-72 ms-6 bg-[#000070]"></div>
+        <div className="w-full h-64 ms-6  rounded-t-lg bg-[#000070]"></div>
+        <div className="w-full h-64 ms-6  rounded-t-lg bg-[#000070]"></div>
+        <div className="w-full h-64 ms-6  rounded-t-lg bg-[#000070]"></div>
+        <div className="w-full  rounded-t-lg h-80 ms-6 bg-[#000070]"></div>
+        <div className="w-full  rounded-t-lg h-80 ms-6 bg-[#000070]"></div>
+        <div className="w-full h-64 ms-6  rounded-t-lg bg-[#000070]"></div>
+    </div>
+   
+</div>
+
       </div>
     );
   }
